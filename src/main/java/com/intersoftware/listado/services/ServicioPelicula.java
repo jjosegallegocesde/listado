@@ -5,6 +5,7 @@
  */
 package com.intersoftware.listado.services;
 
+import com.intersoftware.listado.Repositorios.RepositorioPelicula;
 import com.intersoftware.listado.modelos.Pelicula;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,27 +18,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServicioPelicula {
     
-    Pelicula pelicula=new Pelicula();
+    private final RepositorioPelicula consulta;
+    
+    
 
+    public ServicioPelicula(RepositorioPelicula consulta) {
+        this.consulta = consulta;
+    }
+    
+    
     public List<Pelicula> buscarPeliculas() {
 
-        List<Pelicula> peliculas = new ArrayList<>();
         
-        //SE TRAEN DATOS:
-        pelicula= new Pelicula();
-        pelicula.setTitulo("uno");
-        pelicula.setSinopsis("descripcion 1");
-        pelicula.setFoto("https://github.com/jjosegallegocesde/poster/blob/main/p1.jpg?raw=true");
-        peliculas.add(pelicula);
+        return consulta.findAll();
         
-        pelicula= new Pelicula();
-        pelicula.setTitulo("dos");
-        pelicula.setSinopsis("descripcion 2");
-        pelicula.setFoto("https://github.com/jjosegallegocesde/poster/blob/main/p2.jpg?raw=true");
-        peliculas.add(pelicula);
-        
-        
-        return peliculas;
 
     }
 

@@ -5,12 +5,23 @@
  */
 package com.intersoftware.listado.modelos;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Juan
  */
+
+@Entity
 public class Pelicula {
     
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String titulo;
     private String sinopsis;
     private String foto;
@@ -38,6 +49,15 @@ public class Pelicula {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
     
     
